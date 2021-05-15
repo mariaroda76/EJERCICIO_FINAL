@@ -6,12 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".UserFragment">
 
+    <TextView
+        android:id="@+id/labelWelcome"
+        style="@android:style/Widget.Holo.Light.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido a Mis Recetas"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#DCDCDD"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/et_UserFr_editUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/et_UserFr_editUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="50dp"
+        android:backgroundTint="#9FA8DA"
         android:hint="@string/intro_user"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/et_UserFr_editPass"
@@ -25,10 +42,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
+        android:backgroundTint="#9FA8DA"
         android:hint="@string/intro_nueva_contrasena"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/user_bt_Sign"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_UserFr_editUser" />
@@ -37,11 +55,9 @@
         android:id="@+id/user_bt_Sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:text="Registrarme"
+        app:layout_constraintEnd_toEndOf="@+id/et_UserFr_editPass"
         app:layout_constraintTop_toBottomOf="@+id/et_UserFr_editPass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

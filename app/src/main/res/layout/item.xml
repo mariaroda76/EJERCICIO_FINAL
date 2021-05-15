@@ -12,9 +12,12 @@
         android:id="@+id/tv_item_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="xxx"
+        android:textAllCaps="true"
+        android:textColor="#1A237E"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,9 +26,10 @@
         android:id="@+id/tv_item_categoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="xxx"
+        android:textColor="#3949AB"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_titulo" />
@@ -34,8 +38,9 @@
         android:id="@+id/v_item_dificu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="30dp"
         android:text="xxx"
+        android:textColor="#3949AB"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_item_titulo" />
@@ -44,10 +49,31 @@
         android:id="@+id/tv_item_tiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="30dp"
         android:text="xxx"
+        android:textColor="#3949AB"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_item_categoria" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:text="Dificultad:"
+        app:layout_constraintBottom_toBottomOf="@+id/v_item_dificu"
+        app:layout_constraintEnd_toStartOf="@+id/v_item_dificu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/v_item_dificu" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo:"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_tiempo"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_tiempo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
