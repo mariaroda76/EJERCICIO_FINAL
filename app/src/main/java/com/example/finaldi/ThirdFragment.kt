@@ -3,7 +3,6 @@ package com.example.finaldi
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -22,7 +21,7 @@ class ThirdFragment : Fragment() {
     lateinit var etPasos: EditText
     var pos = -2
 
-    lateinit var mipelicula: RoomReceta
+    lateinit var mireceta: RoomReceta
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,7 +69,7 @@ class ThirdFragment : Fragment() {
             (activity as MainActivity).myViewModel.miReceta.observe(activity as MainActivity) {
                 it?.let {
                     Log.d("tercero", it.titulo)// saca en el logcat info
-                    mipelicula = it
+                    mireceta = it
                     etTitulo.setText(it.titulo)
                     etCategoria.setText(it.categoria)
                     etDificultad.setText(it.dificultad.toString())
@@ -141,7 +140,7 @@ class ThirdFragment : Fragment() {
         btEliminar.setOnClickListener {
 
             (activity as MainActivity).myViewModel.Borrar(
-                mipelicula
+                mireceta
             )
 
 
@@ -164,22 +163,22 @@ class ThirdFragment : Fragment() {
 
 
         if (titulo.isEmpty()) {
-            errores += "Debes darle un titulo a tu receta."
+            errores += "Debes darle un titulo a tu receta.\n"
         }
         if (categoria.isEmpty()) {
-            errores += "La categoría no puede quedar en blanco."
+            errores += "La categoría no puede quedar en blanco.\n"
         }
 
         if (tiempo.isEmpty()) {
-            errores += "La debes asignar un tiempo a tu receta!"
+            errores += "La debes asignar un tiempo a tu receta!\n"
         }
 
         if (dificultad.isEmpty()) {
-            errores += "La dificultad es un dato necesario..."
+            errores += "La dificultad es un dato necesario...\n"
         }
 
         if (ingredientes.isEmpty()) {
-            errores += "Sin ingredientes no hay receta."
+            errores += "Sin ingredientes no hay receta.\n"
         }
 
         if (pasos.isEmpty()) {
@@ -285,7 +284,7 @@ class ThirdFragment : Fragment() {
         ) { _, _ ->
 
             (activity as MainActivity).myViewModel.Borrar(
-                mipelicula
+                mireceta
             )
             findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
         }
