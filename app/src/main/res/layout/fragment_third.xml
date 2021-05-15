@@ -21,93 +21,97 @@
 
     <EditText
         android:id="@+id/fragment3_et_dificultad"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="5"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/fragment3_et_categoria"
-        app:layout_constraintTop_toBottomOf="@+id/fragment3_et_categoria" />
+        app:layout_constraintStart_toStartOf="@+id/fragment3_bt_categoria"
+        app:layout_constraintTop_toBottomOf="@+id/fragment3_bt_categoria" />
 
     <EditText
         android:id="@+id/fragment3_et_tiempo"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:ems="10"
         android:hint="15 min"
         android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/fragment3_et_dificultad"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment3_et_dificultad"
+        app:layout_constraintEnd_toEndOf="@+id/fragment3_et_titulo"
         app:layout_constraintTop_toTopOf="@+id/fragment3_et_dificultad" />
 
-    <EditText
-        android:id="@+id/fragment3_et_categoria"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+
+    <Button
+        android:id="@+id/fragment3_bt_categoria"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Categoria..."
-        android:inputType="textPersonName"
+        android:gravity="center"
+        android:text="Categoria"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/fragment3_et_titulo"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/fragment3_et_titulo"
         app:layout_constraintTop_toBottomOf="@+id/fragment3_et_titulo" />
-
-<!--    <Button
-        android:id="@+id/fragment3_bt_modificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/modificar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/fragment3_bt_insert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/insertar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fragment3_bt_eliminar"
-        app:layout_constraintStart_toEndOf="@+id/fragment3_bt_modificar" />
-
-    <Button
-        android:id="@+id/fragment3_bt_eliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/eliminar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <EditText
         android:id="@+id/fragment3_mline_ingregientes"
         android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="140dp"
         android:ems="10"
-        android:maxLines="30"
         android:gravity="start|top"
         android:hint="ingredientes..."
         android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="@+id/fragment3_et_categoria"
-        app:layout_constraintTop_toBottomOf="@+id/fragment3_et_categoria" />
+        android:maxLines="30"
+        app:layout_constraintStart_toStartOf="@+id/fragment3_bt_categoria"
+        app:layout_constraintTop_toBottomOf="@+id/fragment3_bt_categoria" />
 
     <EditText
         android:id="@+id/fragment3_mline_descripcion"
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_marginTop="20dp"
-        android:maxLines="30"
         android:ems="10"
         android:gravity="start|top"
         android:hint="pasos a seguir..."
         android:inputType="textMultiLine"
+        android:maxLines="30"
         app:layout_constraintStart_toStartOf="@+id/fragment3_mline_ingregientes"
         app:layout_constraintTop_toBottomOf="@+id/fragment3_mline_ingregientes" />
+
+    <TextView
+        android:id="@+id/fragment3_tv_labcategoria"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Selecciona categoria"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment3_bt_categoria"
+        app:layout_constraintEnd_toEndOf="@+id/fragment3_et_titulo"
+        app:layout_constraintTop_toTopOf="@+id/fragment3_bt_categoria" />
+
+    <TextView
+        android:id="@+id/labeldificultad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dificultad (1-10)"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/fragment3_et_dificultad"
+        app:layout_constraintStart_toStartOf="@+id/fragment3_et_dificultad"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Tiempo (min)"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/fragment3_et_tiempo"
+        app:layout_constraintStart_toStartOf="@+id/fragment3_et_tiempo"
+        app:layout_constraintTop_toBottomOf="@+id/fragment3_et_tiempo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

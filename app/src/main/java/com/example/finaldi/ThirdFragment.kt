@@ -3,7 +3,9 @@ package com.example.finaldi
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +15,11 @@ import androidx.navigation.fragment.findNavController
 
 class ThirdFragment : Fragment() {
 
+    lateinit var selCategoria: String
     lateinit var etTitulo: EditText
-    lateinit var etCategoria: EditText
+    lateinit var tvCat: TextView
+
+
     lateinit var etDificultad: EditText
     lateinit var etTiempo: EditText
     lateinit var etIngredientes: EditText
@@ -38,31 +43,30 @@ class ThirdFragment : Fragment() {
         setHasOptionsMenu(true)
 
 
-/*        val btInsertar = view.findViewById<Button>(R.id.fragment3_bt_insert)
-        val btModificar = view.findViewById<Button>(R.id.fragment3_bt_modificar)
-        val btEliminar = view.findViewById<Button>(R.id.fragment3_bt_eliminar)*/
-
         etTitulo = view.findViewById<EditText>(R.id.fragment3_et_titulo)
-        etCategoria = view.findViewById<EditText>(R.id.fragment3_et_categoria)
+        tvCat= view.findViewById<TextView>(R.id.fragment3_tv_labcategoria)
         etDificultad = view.findViewById<EditText>(R.id.fragment3_et_dificultad)
         etTiempo = view.findViewById<EditText>(R.id.fragment3_et_tiempo)
         etIngredientes = view.findViewById<EditText>(R.id.fragment3_mline_ingregientes)
         etPasos = view.findViewById<EditText>(R.id.fragment3_mline_descripcion)
 
+
+
         pos = arguments?.getInt("id") ?: -1
 
+        val btCategoria = view.findViewById<Button>(R.id.fragment3_bt_categoria)
 
+        btCategoria.setOnClickListener {
+            // Show the single choice list items on an alert dialog
+            showCatDialog()
+        }
 
         if (pos == -1) {//viene de crear
-/*            btEliminar.isEnabled = false
-            btModificar.isEnabled = false
-            btInsertar.isEnabled = false*/
+
             activity?.setTitle("Nueva")
 
         } else { //viene de modificar o eliminar
-/*            btEliminar.isEnabled = false
-            btModificar.isEnabled = false
-            btInsertar.isEnabled = false*/
+
             activity?.setTitle("Edita")
 
             (activity as MainActivity).myViewModel.BuscarPorId(pos)
@@ -71,81 +75,18 @@ class ThirdFragment : Fragment() {
                     Log.d("tercero", it.titulo)// saca en el logcat info
                     mireceta = it
                     etTitulo.setText(it.titulo)
-                    etCategoria.setText(it.categoria)
+                    selCategoria = it.categoria
+
                     etDificultad.setText(it.dificultad.toString())
                     etTiempo.setText(it.tiempo.toString())
                     etIngredientes.setText(it.ingredientes)
                     etPasos.setText(it.pasos)
                 }
+
+                tvCat.setText(selCategoria)
             }
 
         }
-
-/*        btInsertar.setOnClickListener {
-
-            val errores = validar()
-
-            if (errores == "") {
-
-                (activity as MainActivity).myViewModel.Insertar(
-                    miReceta = RoomReceta(
-                        titulo = etTitulo.text.toString(),
-                        categoria = etCategoria.text.toString(),
-                        dificultad = etDificultad.text.toString().toInt(),
-                        tiempo = etTiempo.text.toString().toInt(),
-
-                        ingredientes = etIngredientes.text.toString(),
-                        pasos = etPasos.text.toString(),
-
-                        )
-                )
-
-                findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
-
-            } else {
-                Toast.makeText(activity, errores, Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-        }
-
-
-        btModificar.setOnClickListener {
-            val errores = validar()
-
-            if (errores == "") {
-
-                (activity as MainActivity).myViewModel.Actualizar(
-                    miReceta = RoomReceta(
-                        pos,
-                        titulo = etTitulo.text.toString(),
-                        categoria = etCategoria.text.toString(),
-                        dificultad = etDificultad.text.toString().toInt(),
-                        tiempo = etTiempo.text.toString().toInt(),
-                        ingredientes = etIngredientes.text.toString(),
-                        pasos = etPasos.text.toString(),
-                    )
-                )
-
-                findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
-
-            } else {
-                Toast.makeText(activity, errores, Toast.LENGTH_SHORT)
-                    .show()
-
-            }
-
-        }
-
-        btEliminar.setOnClickListener {
-
-            (activity as MainActivity).myViewModel.Borrar(
-                mireceta
-            )
-
-
-            findNavController().navigate(R.id.action_thirdFragment_to_SecondFragment)
-        }*/
 
 
     }
@@ -153,7 +94,6 @@ class ThirdFragment : Fragment() {
     fun validar(): String {
 
         val titulo = etTitulo.text.toString()
-        val categoria = etCategoria.text.toString()
         val tiempo: String = etTiempo.text.toString()
         val dificultad = etDificultad.text.toString()
         val ingredientes = etIngredientes.text.toString()
@@ -165,9 +105,6 @@ class ThirdFragment : Fragment() {
         if (titulo.isEmpty()) {
             errores += "Debes darle un titulo a tu receta.\n"
         }
-        if (categoria.isEmpty()) {
-            errores += "La categoría no puede quedar en blanco.\n"
-        }
 
         if (tiempo.isEmpty()) {
             errores += "La debes asignar un tiempo a tu receta!\n"
@@ -175,6 +112,10 @@ class ThirdFragment : Fragment() {
 
         if (dificultad.isEmpty()) {
             errores += "La dificultad es un dato necesario...\n"
+        }
+
+        if ((dificultad.toInt() > 10 ) || (dificultad.toInt() < 1 )) {
+            errores += "La dificultad debe estar entre 1 y 10\n"
         }
 
         if (ingredientes.isEmpty()) {
@@ -198,13 +139,13 @@ class ThirdFragment : Fragment() {
         menu.findItem(R.id.menInsertar)?.isVisible = false
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menuBorrar -> {
-                if (pos == -1) {Toast.makeText(activity, "no han nada que borrar", Toast.LENGTH_SHORT)
-                    .show()}
-                else{
+                if (pos == -1) {
+                    Toast.makeText(activity, "no han nada que borrar", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
                     showAlertDialog()
                 }
 
@@ -223,7 +164,8 @@ class ThirdFragment : Fragment() {
                         (activity as MainActivity).myViewModel.Insertar(
                             miReceta = RoomReceta(
                                 titulo = etTitulo.text.toString(),
-                                categoria = etCategoria.text.toString(),
+                                categoria = selCategoria,
+                                //categoria = etCategoria.text.toString(),
                                 dificultad = etDificultad.text.toString().toInt(),
                                 tiempo = etTiempo.text.toString().toInt(),
 
@@ -249,7 +191,8 @@ class ThirdFragment : Fragment() {
                             miReceta = RoomReceta(
                                 pos,
                                 titulo = etTitulo.text.toString(),
-                                categoria = etCategoria.text.toString(),
+                                categoria = selCategoria,
+                                //categoria = etCategoria.text.toString(),
                                 dificultad = etDificultad.text.toString().toInt(),
                                 tiempo = etTiempo.text.toString().toInt(),
                                 ingredientes = etIngredientes.text.toString(),
@@ -296,6 +239,48 @@ class ThirdFragment : Fragment() {
         val alert: AlertDialog = alertDialog.create()
         alert.setCanceledOnTouchOutside(false)
         alert.show()
+    }
+
+    // Method to show an alert dialog with single choice list items
+    private fun showCatDialog() {
+        // Late initialize an alert dialog object
+        lateinit var dialog: AlertDialog
+
+        // Initialize an array of colors
+        val array = arrayOf("INDEFINIDO", "ENTRANTE", "PASTA", "PIZZA", "COCIDO", "HORNO", "POSTRE")
+
+        // Initialize a new instance of alert dialog builder object
+        val builder = AlertDialog.Builder(requireActivity())
+
+        // Set a title for alert dialog
+        builder.setTitle("Elige una Categoria: .")
+
+
+        // Set the single choice items for alert dialog with initial selection
+        builder.setSingleChoiceItems(array, 0) { _, which ->
+            // Get the dialog selected item
+            val categoria = array[which]
+
+            // Try to parse user selected color string
+            try {
+                selCategoria = categoria
+                tvCat.setText(selCategoria)
+
+            } catch (e: IllegalArgumentException) {
+                // Catch the color string parse exception
+                Toast.makeText(activity, "Algo no va bien..", Toast.LENGTH_SHORT).show()
+            }
+
+            // Dismiss the dialog
+            dialog.dismiss()
+        }
+
+
+        // Initialize the AlertDialog using builder object
+        dialog = builder.create()
+
+        // Finally, display the alert dialog
+        dialog.show()
     }
 
 
