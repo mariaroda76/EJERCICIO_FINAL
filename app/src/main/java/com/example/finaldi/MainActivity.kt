@@ -1,10 +1,12 @@
 package com.example.finaldi
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         //return true
         return super.onSupportNavigateUp() || findNavController(R.id.nav_host_fragment).navigateUp()
     }
+
+
 
 
 

@@ -107,7 +107,7 @@ class DetailRecetaFragment : Fragment() {
 
     private fun showAlertDialog() {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
-        alertDialog.setTitle("AlertDialog")
+        alertDialog.setTitle("Eliminar receta")
         alertDialog.setMessage("Deseas borrar definitivamente la receta?")
         alertDialog.setPositiveButton(
             "Si"

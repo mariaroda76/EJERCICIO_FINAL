@@ -95,7 +95,7 @@ class UserFragment : Fragment() {
 
     private fun showAlertDialog() {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
-        alertDialog.setTitle("AlertDialog")
+        alertDialog.setTitle("Usuario existente")
         alertDialog.setMessage("El usuario existe, deseas cambiar la contraseña?")
         alertDialog.setPositiveButton(
             "Si"

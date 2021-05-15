@@ -29,6 +29,7 @@
         android:layout_marginTop="160dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="#9FA8DA"
+
         android:hint="@string/intro_user"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/et_UserFr_editPass"
@@ -45,6 +46,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="#9FA8DA"
+
         android:hint="@string/intro_nueva_contrasena"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"

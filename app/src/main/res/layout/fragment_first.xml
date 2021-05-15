@@ -15,6 +15,7 @@
         android:layout_marginTop="160dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="#9FA8DA"
+
         android:hint="@string/usuario"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="#9FA8DA"
+
         android:hint="@string/contrasena"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nuevo usuario:"
+
         app:layout_constraintBottom_toBottomOf="@+id/fist_bt_SingIn"
         app:layout_constraintStart_toStartOf="@+id/et_first_pass"
         app:layout_constraintTop_toTopOf="@+id/fist_bt_SingIn" />
