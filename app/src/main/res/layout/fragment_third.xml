@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Tiempo (min)"
+        android:text="Tiempo (5 - 240 min)"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/fragment3_et_tiempo"
         app:layout_constraintStart_toStartOf="@+id/fragment3_et_tiempo"

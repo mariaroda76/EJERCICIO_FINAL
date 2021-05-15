@@ -11,6 +11,9 @@
         android:id="@+id/crd_detalles"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_margin="30dp"
+        android:background="#E8E2E2"
+        app:cardBackgroundColor="#EFEFF1"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="101dp">
 
@@ -18,16 +21,20 @@
             android:id="@+id/tv_detailReceta_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#9FA8DA"
             android:text="Titulo receta"
             android:textAlignment="center"
+            android:textColor="#3F51B5"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:drawableTint="#3F51B5" />
 
         <TextView
             android:id="@+id/label_categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categoria"
+            android:textColor="#1C1C1C"
             android:translationX="20dp"
             android:translationY="60dp" />
 
@@ -37,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Dificultad"
+            android:textColor="#1C1C1C"
             android:translationX="20dp"
             android:translationY="80dp" />
 
@@ -46,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="T. Preparacion (min)"
+            android:textColor="#1C1C1C"
             android:translationX="20dp"
             android:translationY="110dp" />
 
@@ -55,6 +64,7 @@
             android:layout_height="wrap_content"
             android:text="Pasta"
             android:textAlignment="textEnd"
+            android:textColor="#3949AB"
             android:translationX="200dp"
             android:translationY="60dp" />
 
@@ -65,6 +75,7 @@
             android:layout_marginTop="10dp"
             android:text="facil"
             android:textAlignment="textEnd"
+            android:textColor="#3949AB"
             android:translationX="200dp"
             android:translationY="80dp" />
 
@@ -75,6 +86,7 @@
             android:layout_marginTop="10dp"
             android:text="130"
             android:textAlignment="textEnd"
+            android:textColor="#3949AB"
             android:translationX="200dp"
             android:translationY="110dp" />
 
@@ -82,20 +94,25 @@
 
     <TextView
         android:id="@+id/label_ingredientes"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:text="Ingredientes:"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crd_detalles" />
 
     <ScrollView
         android:id="@+id/scr_ingredientes"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="30dp"
+        android:background="#E8EAF6"
+        android:outlineProvider="paddedBounds"
         android:translationY="00dp"
-        app:layout_constraintTop_toBottomOf="@+id/label_ingredientes"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_ingredientes">
 
         <EditText
             android:id="@+id/multiLine_ingredientes"
@@ -103,28 +120,35 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:lines="30"
-            android:scrollbars="vertical"
-
             android:inputType="none"
-            android:scrollHorizontally="false" />
+            android:lines="30"
+
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"
+            android:textColor="#1C1C1C" />
     </ScrollView>
 
     <TextView
         android:id="@+id/label_descripcion"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Descripcion"
-        app:layout_constraintTop_toBottomOf="@+id/scr_ingredientes"
-        tools:layout_editor_absoluteX="40dp" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Descripcion: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scr_ingredientes" />
 
     <ScrollView
         android:id="@+id/scr_descripcion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="30dp"
+        android:layout_marginBottom="50dp"
+        android:background="#E8EAF6"
+        android:outlineProvider="paddedBounds"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_descripcion">
 
         <EditText
@@ -133,11 +157,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:lines="30"
-            android:scrollbars="vertical"
-
             android:inputType="none"
-            android:scrollHorizontally="false" />
+            android:lines="30"
+
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"
+            android:textColor="#1C1C1C" />
     </ScrollView>
 
 

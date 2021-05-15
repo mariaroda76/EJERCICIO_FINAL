@@ -110,6 +110,10 @@ class ThirdFragment : Fragment() {
             errores += "La debes asignar un tiempo a tu receta!\n"
         }
 
+        if ((dificultad.toInt() > 240 ) || (dificultad.toInt() < 5 )) {
+            errores += "El tiempo debe estar entre 5 y 240 minutos\n"
+        }
+
         if (dificultad.isEmpty()) {
             errores += "La dificultad es un dato necesario...\n"
         }
