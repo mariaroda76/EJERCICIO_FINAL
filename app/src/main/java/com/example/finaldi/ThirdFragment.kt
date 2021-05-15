@@ -151,8 +151,15 @@ class ThirdFragment : Fragment() {
         when (item.itemId) {
             R.id.menuBorrar -> {
                 if (pos == -1) {
-                    Toast.makeText(activity, "no han nada que borrar", Toast.LENGTH_SHORT)
-                        .show()
+
+                    etTitulo.setText("")
+
+                    tvCat.setText("Selecciona categoria")
+                    etDificultad.setText("")
+                    etTiempo.setText("")
+                    etIngredientes.setText("")
+                    etPasos.setText("")
+
                 } else {
                     showAlertDialog()
                 }
