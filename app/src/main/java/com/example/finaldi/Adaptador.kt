@@ -18,8 +18,7 @@ class Adaptador(var listaRecetas: List<RoomReceta>, val actividad:Activity) :
         var tvCategoriaItem:TextView
         var tvDificultadItem:TextView
         var tvTiempoItem:TextView
-/*        var tvIngredientesItem:TextView
-        var tvPasosItem:TextView*/
+
         var id:Int
 
         init{
@@ -28,8 +27,7 @@ class Adaptador(var listaRecetas: List<RoomReceta>, val actividad:Activity) :
             tvCategoriaItem=v.findViewById(R.id.tv_item_categoria)
             tvDificultadItem=v.findViewById(R.id.v_item_dificu)
             tvTiempoItem=v.findViewById(R.id.tv_item_tiempo)
-/*            tvIngredientesItem=v.findViewById(R.id.multiLine_ingredientes)
-            tvPasosItem=v.findViewById(R.id.multiline_descripcion)*/
+
             id=0
             v.setOnClickListener{
                 val bundle = bundleOf("id" to this.id)
