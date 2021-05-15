@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,8 +35,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+        //onBackPressed()
+        //return true
+        return super.onSupportNavigateUp() || findNavController(R.id.nav_host_fragment).navigateUp()
     }
 
 

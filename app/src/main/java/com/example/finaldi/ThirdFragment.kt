@@ -44,7 +44,7 @@ class ThirdFragment : Fragment() {
 
 
         etTitulo = view.findViewById<EditText>(R.id.fragment3_et_titulo)
-        tvCat= view.findViewById<TextView>(R.id.fragment3_tv_labcategoria)
+        tvCat = view.findViewById<TextView>(R.id.fragment3_tv_labcategoria)
         etDificultad = view.findViewById<EditText>(R.id.fragment3_et_dificultad)
         etTiempo = view.findViewById<EditText>(R.id.fragment3_et_tiempo)
         etIngredientes = view.findViewById<EditText>(R.id.fragment3_mline_ingregientes)
@@ -107,20 +107,24 @@ class ThirdFragment : Fragment() {
         }
 
         if (tiempo.isEmpty()) {
-            errores += "La debes asignar un tiempo a tu receta!\n"
+            errores += "Le debes asignar un tiempo a tu receta!\n"
+        } else {
+            if ((tiempo.toInt() > 240) or (tiempo.toInt() < 5)) {
+                errores += "El tiempo debe estar entre 5 y 240 minutos.\n"
+            }
         }
 
-        if ((dificultad.toInt() > 240 ) || (dificultad.toInt() < 5 )) {
-            errores += "El tiempo debe estar entre 5 y 240 minutos\n"
-        }
+
 
         if (dificultad.isEmpty()) {
             errores += "La dificultad es un dato necesario...\n"
+        } else {
+            if ((dificultad.toInt() > 10) or (dificultad.toInt() < 1)) {
+                errores += "La dificultad debe estar entre 1 y 10.\n"
+            }
         }
 
-        if ((dificultad.toInt() > 10 ) || (dificultad.toInt() < 1 )) {
-            errores += "La dificultad debe estar entre 1 y 10\n"
-        }
+
 
         if (ingredientes.isEmpty()) {
             errores += "Sin ingredientes no hay receta.\n"
@@ -172,7 +176,6 @@ class ThirdFragment : Fragment() {
                                 //categoria = etCategoria.text.toString(),
                                 dificultad = etDificultad.text.toString().toInt(),
                                 tiempo = etTiempo.text.toString().toInt(),
-
                                 ingredientes = etIngredientes.text.toString(),
                                 pasos = etPasos.text.toString(),
 
@@ -211,7 +214,7 @@ class ThirdFragment : Fragment() {
                             .show()
 
                     }
-                } //vengo de detailed view para editar
+                }
 
 
             }
