@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">finaldi</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="modificar">Modificar</string>
+    <string name="insertar">Insertar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="ingresa_el_titulo_de_la_pelicula">Ingresa el titulo de la receta</string>
+    <string name="ingresa_el_a_o_de_la_pelicula">Ingresa el año de la receta</string>
+    <string name="ingresa_el_genero_de_la_pelicula">Ingresa el genero de la receta</string>
+    <string name="restablecer">restablecer</string>
+    <string name="usuario">usuario</string>
+    <string name="contrase_a">contraseña</string>
+    <string name="contrasena">contrasena</string>
+    <string name="log_in">Log-In</string>
+    <string name="sing_in">Sing In</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="intro_nueva_contrasena">Intro nueva contrasena</string>
+    <string name="intro_user">Intro User</string>
+    <string name="ingresa_dificultad_de_preparacion">ingresa_dificultad_de_preparacion</string>
+    <string name="ingresa_tiempo_de_preparacion">ingresa_tiempo de preparacion</string>
+    <string name="guardar">Guardar</string>
+
+    <string name="delete">Delete</string>
+
+    <string name="editar">Editar</string>
+</resources>

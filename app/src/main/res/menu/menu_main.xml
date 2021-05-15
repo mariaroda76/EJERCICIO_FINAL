@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.finaldi.MainActivity">
+
+
+
+    <item
+        android:id="@+id/menuEditar"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/editar"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/menuBorrar"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/delete"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@id/menInsertar"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="@string/insertar"
+        app:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/menuGuardar"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/guardar"
+        app:showAsAction="always" />
+
+
+<!--    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />-->
+
+
+
+</menu>

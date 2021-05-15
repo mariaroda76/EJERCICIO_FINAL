@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailRecetaFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crd_detalles"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="101dp">
+
+        <TextView
+            android:id="@+id/tv_detailReceta_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titulo receta"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_categoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria"
+            android:translationX="20dp"
+            android:translationY="60dp" />
+
+        <TextView
+            android:id="@+id/Label_dificultad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Dificultad"
+            android:translationX="20dp"
+            android:translationY="80dp" />
+
+        <TextView
+            android:id="@+id/label_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="T. Preparacion (min)"
+            android:translationX="20dp"
+            android:translationY="110dp" />
+
+        <TextView
+            android:id="@+id/tv_detailReceta_categoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pasta"
+            android:textAlignment="textEnd"
+            android:translationX="200dp"
+            android:translationY="60dp" />
+
+        <TextView
+            android:id="@+id/tv_detailReceta_dificultad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="facil"
+            android:textAlignment="textEnd"
+            android:translationX="200dp"
+            android:translationY="80dp" />
+
+        <TextView
+            android:id="@+id/tv_detailReceta_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="130"
+            android:textAlignment="textEnd"
+            android:translationX="200dp"
+            android:translationY="110dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/label_ingredientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Ingredientes:"
+        app:layout_constraintTop_toBottomOf="@+id/crd_detalles" />
+
+    <ScrollView
+        android:id="@+id/scr_ingredientes"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:translationY="00dp"
+        app:layout_constraintTop_toBottomOf="@+id/label_ingredientes"
+        tools:layout_editor_absoluteX="16dp">
+
+        <EditText
+            android:id="@+id/multiLine_ingredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:lines="30"
+            android:scrollbars="vertical"
+
+            android:inputType="none"
+            android:scrollHorizontally="false" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/label_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Descripcion"
+        app:layout_constraintTop_toBottomOf="@+id/scr_ingredientes"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <ScrollView
+        android:id="@+id/scr_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_descripcion">
+
+        <EditText
+            android:id="@+id/multiline_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:lines="30"
+            android:scrollbars="vertical"
+
+            android:inputType="none"
+            android:scrollHorizontally="false" />
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
