@@ -59,8 +59,10 @@ class FirstFragment : Fragment() {
 
     private fun loginCheck() {
 
-        val user: String = etUsuario.text.toString().trim()
-        val pass: String = etPass.text.toString().trim()
+        var user: String = etUsuario.text.toString().trim()
+        var pass: String = etPass.text.toString().trim()
+
+
 
         if ((etUsuario.text.isNotEmpty()) or (etPass.text.isNotEmpty())) {
             val datos: SharedPreferences = (activity as MainActivity).getSharedPreferences(
@@ -68,19 +70,31 @@ class FirstFragment : Fragment() {
                 Context.MODE_PRIVATE
             )
 
+
+
             val validUser = datos.getString("user",null)
             val validPass = datos.getString("pass",null)
 
-            if (validUser==null) {
+            if (validUser==null) {//si no hay user devuelve null (es poruqe es la primera vez que entro, entonces guardo los datos que haya y navego)
                 val editor = datos.edit()
                 editor.putString("user",user)
                 editor.putString("pass",pass)
                 editor.apply()
+
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 
-            } //si no hay user devuelve null (es poruqe es la primera vez que entro, entonces guardo los datos que haya y navego)
+                etUsuario.text.clear()
+                etPass.text.clear()
+
+
+            }
             else if (etUsuario.getText().toString().equals(validUser) && etPass.getText().toString().equals(validPass)){
+
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
+                etUsuario.text.clear()
+                etPass.text.clear()
+
             }
             else {
                 Toast.makeText(activity, "Usuario y/o Contraseña incorrectos!!", Toast.LENGTH_SHORT).show()

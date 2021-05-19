@@ -38,10 +38,21 @@
         tools:layout="@layout/fragment_third" >
         <action
             android:id="@+id/action_thirdFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+
+            app:popUpTo="@+id/thirdFragment"
+            app:popUpToInclusive="true"
+
+            />
+
         <action
             android:id="@+id/action_thirdFragment_to_detailRecetaFragment"
-            app:destination="@id/detailRecetaFragment" />
+            app:destination="@id/detailRecetaFragment"
+
+            app:popUpTo="@+id/thirdFragment"
+            app:popUpToInclusive="true"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -59,12 +70,23 @@
         android:id="@+id/detailRecetaFragment"
         android:name="com.example.finaldi.DetailRecetaFragment"
         android:label="fragment_detail_receta"
-        tools:layout="@layout/fragment_detail_receta" >
+        tools:layout="@layout/fragment_detail_receta"
+>
         <action
             android:id="@+id/action_detailRecetaFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+
+
+            app:popUpTo="@+id/detailRecetaFragment"
+            app:popUpToInclusive="true"/>
+
+
         <action
             android:id="@+id/action_detailRecetaFragment_to_thirdFragment2"
-            app:destination="@id/thirdFragment" />
+            app:destination="@id/thirdFragment"
+
+            app:popUpTo="@+id/detailRecetaFragment"
+            app:popUpToInclusive="true"
+/>
     </fragment>
 </navigation>
